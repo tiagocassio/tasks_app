@@ -1,9 +1,9 @@
-//= require jquery/dist/jquery.min
+//= require jquery/dist/jquery
 //= require jquery-ui
 //= require rails-ujs
 //= require activestorage
-//= require popper.js/dist/umd/popper.min
-//= require bootstrap/dist/js/bootstrap.bundle.min
+//= require popper.js/dist/umd/popper
+//= require bootstrap/dist/js/bootstrap.bundle
 //= require jquery.sticky
 
 function getStatus() {
