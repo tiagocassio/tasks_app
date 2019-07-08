@@ -1,3 +1,5 @@
+@import url("https://preview.tabler.io/assets/css/dashboard.css");
+
 $color-red: #cd201f;
 $color-validation: #cd201f;
 $color-green: #00887a;
@@ -39,7 +41,6 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   color: $color-blue-deep;
-  background: linear-gradient(to right, $color-sand);
 
   ::selection {
     color: $color-white;
