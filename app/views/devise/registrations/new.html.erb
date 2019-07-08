@@ -1,0 +1,33 @@
+<div class="card mb-3">
+  <div class="card-body p-6">
+    <div class="card-title font-weight-bold">Registro</div>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'card') do |f| %>
+      <%= f.error_notification %>
+      <%= render 'application/flashes' %>
+      <%= f.input :email, required: false, autofocus: true do %>
+        <div class="input-icon">
+          <%= f.input_field :email, label_text: 'text', class: 'form-control form-control-lg', autocomplete: 'email' %>
+        </div>
+      <% end %>
+      <%= f.input :password, required: true do %>
+        <div class="input-icon">
+          <%= f.password_field :password, label_text: 'text', class: 'form-control form-control-lg', autocomplete: 'current-password' %>
+        </div>
+        <div class="text-black">Mínimo de <%= @minimum_password_length %> caracteres</div>
+      <% end %>
+      <%= f.input :password_confirmation, required: true do %>
+        <div class="input-icon">
+          <%= f.password_field :password_confirmation, label_text: 'text', class: 'form-control form-control-lg', autocomplete: 'current-password' %>
+        </div>
+      <% end %>
+      <div class="form-footer mt-4 pt-2">
+        <button type="submit" class="btn btn-primary btn-block">
+          Registrar
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>
+

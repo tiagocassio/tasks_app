@@ -1,0 +1,28 @@
+<%= render 'application/page_header', model: form %>
+<div class="card">
+  <div class="card-status <%= form.errors.any? ? 'bg-red' : 'bg-blue' %>"></div>
+  <div class="card-header">
+    <h1 class="card-title">
+      <%= "#{form.model_name.human} ##{form.id}" %>
+    </h1>
+  </div>
+  <div class="card-body <%= 'pt-0 pb-0' if (tabs ||= nil) %>">
+    <div class="form-row">
+      <%= yield :body %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col">
+        <div class="float-left">
+          <div class="btn-list">
+            <%= button_tag class: 'btn btn-primary btn-submit',
+                           data: {disable_with: '<i class="fas fa-spinner fa-spin"></i>Salvando...'.html_safe} do %>
+              <i class="fas fa-save mr-2"></i><span class="btn-title"><%= t 'helpers.submit.create' %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

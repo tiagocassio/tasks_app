@@ -1,0 +1,30 @@
+<div class="header py-4">
+  <div class="container">
+    <div class="d-flex">
+      <%= link_to root_path, class: 'header-brand text-blue-deep' do %>
+        <%= image_tag 'logo.png', class: 'header-brand-img mr-2', alt: 'image' %><%= ENV['APP_NAME'] ||= 'AppName' %>
+      <% end %>
+      <div class="d-flex order-lg-2 ml-auto">
+        <div class="dropdown">
+          <div class="nav-link pr-0 leading-none" data-toggle="dropdown">
+            <span class="avatar text-white">
+              <%= image_tag 'https://i.pravatar.cc/300', class: 'rounded-circle' %>
+            </span>
+            <span class="ml-2 d-none d-lg-block">
+              <span class="text-blue-deep font-weight-bold"><%= current_user.email %></span>
+              <small class="text-muted d-block mt-1">Administrator</small>
+            </span>
+          </div>
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+              <i class="fas fa-sign-out-alt dropdown-icon"></i> Logout
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#menu">
+        <span class="header-toggler-icon"></span>
+      </a>
+    </div>
+  </div>
+</div>

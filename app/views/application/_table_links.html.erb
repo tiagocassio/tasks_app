@@ -1,0 +1,16 @@
+<%= link_to f, class: 'btn btn-icon bg-transparent text-blue-deep mr-1', role: 'button' do %>
+  <i class="far fa-eye p-0"></i>
+<% end %>
+<% if can? :update, f.model_name.singular.camelize.constantize %>
+  <%= link_to send("edit_#{f.model_name.singular}_path", f),
+              class: 'btn btn-icon bg-transparent text-blue-deep mr-1', role: 'button' do %>
+    <i class="fas fa-edit p-0"></i>
+  <% end %>
+<% end %>
+<% if can? :destroy, f.model_name.singular.camelize.constantize %>
+  <%= link_to f, class: 'btn btn-icon bg-transparent text-blue-deep', method: :delete,
+              data: {confirm: "Confirma a remoção do registro de código ##{f.id}?"},
+              role: 'button', id: 'btn-remove', title: t('helpers.submit.delete') do %>
+    <i class="fas fa-trash p-0"></i>
+  <% end %>
+<% end %>

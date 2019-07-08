@@ -1,0 +1,25 @@
+<div class="accordion" id="accordion">
+  <% projects.each do |project| %>
+    <div class="card mb-2 card-project">
+      <div class="card-header" id="head<%= project.id %>">
+        <a class="btn btn-link d-block px-0" role="button" data-toggle="collapse"
+           data-target="#collapse<%= project.id %>"
+           aria-expanded="true" aria-controls="collapse<%= project.id %>">
+          <h2 class="card-title font-weight-bold">
+            <%= "##{project.id.to_s.rjust(8, '0')} - #{project.name}" %>
+          </h2>
+        </a>
+      </div>
+      <div id="collapse<%= project.id %>" class="collapse show"
+           aria-labelledby="head<%= project.id %>" data-parent="#accordion">
+        <div class="card-body">
+          <ul id="project-task-<%= project.id %>" class="project-task sortable list-unstyled list-separated content">
+            <% project.tasks.each do |task| %>
+              <%= render 'application/task_card', task: task %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <%% content_for :body do %>
+    <%- attributes.each do |attribute| -%>
+      <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, wrapper_html: {class: 'col-lg-3 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+    <%- end -%>
+  <%% end %>
+  <%%= render template: 'application/form', locals: {form: @<%= singular_table_name %>} %>
+<%% end %>

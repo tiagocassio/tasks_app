@@ -1,0 +1,19 @@
+<div class="btn-list">
+  <% if action_name == 'show' %>
+    <%= link_to send("edit_#{f.model_name.singular}_path"), class: 'btn btn-primary', role: 'button' do %>
+      <i class="fas fa-edit mr-2"></i><span class="btn-title"><%= t 'helpers.submit.edit' %></span>
+    <% end %>
+    <%= link_to send("new_#{f.model_name.singular}_path"), class: 'btn btn-info btn-info', role: 'button' do %>
+      <i class="fas fa-plus mr-2"></i><span class="btn-title"><%= t 'helpers.submit.new' %></span>
+    <% end %>
+  <% else %>
+    <%= button_tag class: 'btn btn-primary btn-submit',
+                   data: {disable_with: '<i class="fas fa-spinner fa-spin"></i>Salvando...'.html_safe} do %>
+      <i class="fas fa-save mr-2"></i><span class="btn-title"><%= t("helpers.submit.#{action_name == 'new' ? 'create' : 'update'}") %></span>
+    <% end %>
+  <% end %>
+  <%= link_to send("#{f.model_name.plural}_path"),
+              class: 'btn btn-danger btn-cancel', role: 'button' do %>
+    <i class="fa fa-undo mr-2"></i><span class="btn-title"><%= t 'helpers.submit.cancel' %></span>
+  <% end %>
+</div>

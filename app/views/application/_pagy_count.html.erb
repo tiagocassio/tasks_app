@@ -1,0 +1,11 @@
+<% if list.present? %>
+  <h1 class="pt-2 card-title mb-2">
+    <% if list.count.zero? %>
+      Nenhum registro encontrado
+    <% elsif list.count > 1 %>
+      <strong class="mr-1"><%= list.count %></strong>registros encontrados
+    <% else %>
+      <strong class="mr-1"><%= list.count %></strong>registro encontrado
+    <% end %>
+  </h1>
+<% end %>

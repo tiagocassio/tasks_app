@@ -1,0 +1,32 @@
+<div class="card mb-3">
+  <div class="card-body p-6">
+    <div class="card-title font-weight-bold">Login</div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'card') do |f| %>
+      <%= render 'application/flashes' %>
+      <%= f.input :email, required: false, autofocus: true do %>
+        <div class="input-icon">
+          <%= f.input_field :email, label_text: 'text', class: 'form-control form-control-lg', autocomplete: 'email' %>
+          <div class="input-icon-addon">
+            <i class="fas fa-user text-muted"></i>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :password, required: false, autofocus: true do %>
+        <div class="input-icon">
+          <%= f.password_field :password, label_text: 'text', class: 'form-control form-control-lg', autocomplete: 'current-password' %>
+          <div class="input-icon-addon">
+            <i class="fas fa-key"></i>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :remember_me, as: :boolean, wrapper_html: {class: 'pl-2'} if devise_mapping.rememberable? %>
+      <div class="form-footer mt-4">
+        <button type="submit" class="btn btn-primary btn-block">
+          <%= t('helpers.enter') %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,22 @@
+<%= render 'application/page_header', model: form %>
+<div class="card">
+  <div class="card-status <%= form.errors.any? ? 'bg-red' : 'bg-blue' %>"></div>
+  <div class="card-body pb-3">
+    <div class="dimmer">
+      <div class="dimmer-content">
+        <div class="form-row">
+          <%= yield :body %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col">
+        <div class="float-left">
+          <%= render 'application/form_buttons', f: form %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

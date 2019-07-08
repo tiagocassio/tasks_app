@@ -1,0 +1,19 @@
+<div class="col-md col-sm-3 col-lg">
+  <div class="card bg-<%= color ||= 'white' %>">
+    <div class="card-body p-3 m-0 text-center">
+      <div class="row">
+        <div class="col-4 col-sm-12 text-sm-center">
+          <i class="<%= icon ||= 'fas fa-cube' %> fa-2x p-4 py-auto align-middle"></i>
+        </div>
+        <div class="col-8 col-sm-12 text-right align-content-center align-middle text-sm-center">
+          <div class="h3 font-weight-bold">
+            <%= link_to action do %>
+              <%= description %>
+            <% end %>
+          </div>
+          <div id="<%= id %>" class="h3 m-0"><%= value ||= 0 %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

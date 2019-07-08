@@ -1,0 +1,45 @@
+<%%= render 'application/page_header', model: <%= model_resource_name.camelize %> %>
+<div class="card">
+  <div class="card-status bg-blue"></div>
+  <div class="card-header p-4">
+    <div class="col-sm-12 col-lg-12">
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 p-0">
+          <%%= render 'application/pagy_count', list: @pagy %>
+        </div>
+        <div class="col-sm-12 col-lg-6 p-0">
+          <%%= search_form_for @query do |f| %>
+          <%%= f.search_field :search_cont, class: 'form-control', placeholder: t('helpers.search') %>
+          <%% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0 m-0">
+    <table class="table card-table table-vcenter text-nowrap table-hover">
+      <thead>
+      <tr>
+        <% attributes.reject(&:password_digest?).each do |attribute| -%>
+          <th><%%= <%= model_resource_name.camelize %>.human_attribute_name :<%= attribute.name %> %></th>
+        <% end -%>
+        <th><%%= t('helpers.labels.actions') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%% @<%= plural_table_name %>.each do |<%= model_resource_name %>| %>
+        <tr>
+          <% attributes.reject(&:password_digest?).each do |attribute| -%>
+            <td><%%= <%= model_resource_name %>.<%= attribute.column_name %> %></td>
+          <% end -%>
+          <td class="text-center">
+            <%%= render 'application/table_links', f: <%= model_resource_name %> %>
+          </td>
+        </tr>
+      <%% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <%%= render 'application/footer_links', url: new_<%= model_resource_name %>_path, model: <%= model_resource_name.camelize %> %>
+  </div>
+</div>

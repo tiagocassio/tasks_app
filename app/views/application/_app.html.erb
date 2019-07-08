@@ -1,0 +1,13 @@
+<div class="page">
+  <div class="flex-fill">
+    <%= render 'application/navbar' %>
+    <%= render 'application/menu' %>
+    <div class="my-5 my-md-5">
+      <div class="container">
+        <%= render 'application/flashes' %>
+        <%= yield :page_header %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>

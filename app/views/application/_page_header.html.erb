@@ -1,0 +1,16 @@
+<% content_for :page_header do %>
+  <div class="page-header my-5">
+    <h1 class="page-title font-weight-bold">
+      <i class="<%= t("activerecord.models.#{model.model_name.singular}.icon") %> mr-2"></i><%= model.model_name.human(count: 2) %>
+      <% if %w(edit new create show).include? action_name %>
+        <small class="ml-1 text-muted">
+          <%= if model&.id.present?
+                action_name == 'show' ? 'Visualizar' : 'Editar'
+              else
+                'Novo(a)'
+              end %> <%= model&.model_name&.human %>
+        </small>
+      <% end %>
+    </h1>
+  </div>
+<% end %>

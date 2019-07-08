@@ -1,0 +1,11 @@
+<%= simple_form_for(@task, html: {id: 'form_task'}) do |f| %>
+  <% content_for :body do %>
+    <%= f.input :status, as: :select,
+                collection: Task.statuses.collect {|v, k| [t("activerecord.attributes.task.statuses.#{v}"), v]},
+                wrapper_html: {class: 'col-lg-3 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+    <%= f.input :name, wrapper_html: {class: 'col-lg-6 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+    <%= f.association :project, wrapper_html: {class: 'col-lg-3 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+    <%= f.input :description, wrapper_html: {class: 'col-lg-12 col-sm-12'}, input_html: {rows: 4, disabled: show?(f.object.persisted?)} %>
+  <% end %>
+  <%= render template: 'application/form', locals: {form: @task} %>
+<% end %>

@@ -1,0 +1,90 @@
+<div class="page-header">
+  <h1 class="page-title">Dashboard</h1>
+</div>
+<div class="row row-cards">
+  <%= render 'application/dashboard_card',
+             id: 'projects',
+             color: 'blue-night',
+             icon: 'fas fa-project-diagram',
+             action: projects_path,
+             value: Project.count,
+             description: Project.model_name.human(count: 2) %>
+  <%= render 'application/dashboard_card',
+             id: 'tasks',
+             color: 'yellow',
+             icon: 'fas fa-tasks',
+             action: tasks_path,
+             value: Task.count,
+             description: Task.model_name.human(count: 2) %>
+  <%= render 'application/dashboard_card',
+             id: 'tasks-waiting',
+             color: 'default',
+             icon: 'fas fa-pause-circle',
+             action: tasks_path,
+             value: Task.review_tasks.count,
+             description: t('activerecord.attributes.task.statuses.waiting') %>
+  <%= render 'application/dashboard_card',
+             id: 'tasks-review',
+             color: 'blue',
+             icon: 'fas fa-search',
+             action: tasks_path,
+             value: Task.waiting_tasks.count,
+             description: t('activerecord.attributes.task.statuses.review') %>
+  <%= render 'application/dashboard_card',
+             id: 'tasks-completed',
+             color: 'success',
+             icon: 'fas fa-check',
+             action: tasks_path,
+             value: Task.completed_tasks.count,
+             description: t('activerecord.attributes.task.statuses.completed') %>
+</div>
+<div class="row row-cards form-row">
+  <div class="col-lg-4 col-sm-12 no-decoration">
+    <div id="waiting" class="card">
+      <div class="card-header">
+        <h3 class="card-title font-weight-bold">
+          <%= t('activerecord.attributes.task.statuses.waiting') %>
+        </h3>
+      </div>
+      <div class="card-body p-2" style="min-height: 2rem">
+        <ul class="sortable list-unstyled list-separated content">
+          <% @waiting_tasks.each do |task| %>
+            <%= render 'application/task_card', task: task %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-12 no-decoration">
+    <div id="review" class="card stick">
+      <div class="card-header">
+        <h3 class="card-title font-weight-bold">
+          <%= t('activerecord.attributes.task.statuses.review') %>
+        </h3>
+      </div>
+      <div class="card-body p-2" style="min-height: 2rem">
+        <ul class="sortable list-unstyled list-separated content">
+          <% @review_tasks.each do |task| %>
+            <%= render 'application/task_card', task: task %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-12 no-decoration">
+    <div id="completed" class="card stick">
+      <div class="card-header">
+        <h3 class="card-title font-weight-bold">
+          <%= t('activerecord.attributes.task.statuses.completed') %>
+        </h3>
+      </div>
+      <div class="card-body p-2" style="min-height: 2rem">
+        <ul class="sortable list-unstyled list-separated content">
+          <% @completed_tasks.each do |task| %>
+            <%= render 'application/task_card', task: task %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

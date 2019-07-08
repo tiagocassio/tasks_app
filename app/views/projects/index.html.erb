@@ -1,0 +1,43 @@
+<%= render 'application/page_header', model: Project %>
+<div class="card">
+  <div class="card-status bg-blue"></div>
+  <div class="card-header p-4">
+    <div class="col-sm-12 col-lg-12">
+      <div class="form-row">
+        <div class="col-sm-12 col-lg-6 p-0">
+          <%= render 'application/pagy_count', list: @pagy %>
+        </div>
+        <div class="col-sm-12 col-lg-6 p-0">
+          <%= search_form_for @query do |f| %>
+            <%= f.search_field :search_cont, class: 'form-control', placeholder: t('helpers.search') %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0 m-0">
+    <table class="table card-table table-vcenter text-nowrap table-hover">
+      <thead>
+      <tr>
+        <th class="w-1">#</th>
+        <th><%= Project.human_attribute_name :name %></th>
+        <th><%= t('helpers.labels.actions') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td class="text-muted"><%= project.id %></td>
+          <td><%= project.name %></td>
+          <td class="text-center">
+            <%= render 'application/table_links', f: project %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <%= render 'application/footer_links', url: new_project_path, model: Project %>
+  </div>
+</div>

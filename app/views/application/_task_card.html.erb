@@ -1,0 +1,10 @@
+<li data-task-id="<%= task.slug %>" data-task-status="<%= task.status %>" class="list-separated-item card mb-2 p-2 rounded">
+  <div class="card-body p-2 row align-items-center">
+    <div class="col">
+      <div class="text-inherit font-weight-bold">
+        <%= link_to task.name, task %><small><%= " (#{task.project.name})" if task&.project&.present? %></small>
+      </div>
+      <small class="d-block item-except text-sm text-muted h-1x"><%= task.description %></small>
+    </div>
+  </div>
+</li>

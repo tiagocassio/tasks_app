@@ -1,0 +1,7 @@
+<%= simple_form_for(@project, html: {id: 'form_project'}) do |f| %>
+  <% content_for :body do %>
+    <%= f.input :name, wrapper_html: {class: 'col-lg-3 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+    <%= f.input :description, wrapper_html: {class: 'col-lg-9 col-sm-12'}, input_html: {disabled: show?(f.object.persisted?)} %>
+  <% end %>
+  <%= render template: 'application/form', locals: {form: @project} %>
+<% end %>
