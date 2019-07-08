@@ -1,4 +1,4 @@
-//= require jquery/dist/jquery
+//= require jquery3
 //= require jquery-ui
 //= require rails-ujs
 //= require activestorage

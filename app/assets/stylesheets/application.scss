@@ -103,3 +103,15 @@ body {
   position: fixed;
   top: 0;
 }
+
+.card-task {
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.card-task:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
