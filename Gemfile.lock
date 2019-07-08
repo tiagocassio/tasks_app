@@ -87,7 +87,6 @@ GEM
     chartkick (3.2.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
-    connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -107,8 +106,6 @@ GEM
       railties (>= 3.2, < 6.1)
     equatable (0.6.1)
     erubi (1.8.0)
-    et-orbi (1.2.1)
-      tzinfo
     execjs (2.7.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
@@ -125,9 +122,6 @@ GEM
     ffi (1.11.1)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
-    fugit (1.2.2)
-      et-orbi (~> 1.1, >= 1.1.8)
-      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     groupdate (4.1.2)
@@ -206,13 +200,10 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.1.1)
     puma (3.12.1)
-    raabro (1.1.6)
     rack (2.0.7)
     rack-attack (6.0.0)
       rack (>= 1.0, < 3)
     rack-cors (1.0.3)
-    rack-protection (2.0.5)
-      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.5.1)
@@ -320,14 +311,6 @@ GEM
     seed_migration (1.2.3)
     shoulda-matchers (4.1.0)
       activesupport (>= 4.2.0)
-    sidekiq (5.2.7)
-      connection_pool (~> 2.2, >= 2.2.2)
-      rack (>= 1.5.0)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 5)
-    sidekiq-cron (1.1.0)
-      fugit (~> 1.1)
-      sidekiq (>= 4.2.1)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -447,8 +430,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   seed_migration
   shoulda-matchers
-  sidekiq
-  sidekiq-cron
   simple_form
   simplecov
   spring
