@@ -39,6 +39,7 @@ gem 'seed_migration'
 gem 'simple_form'
 gem 'title'
 gem 'uglifier', '>= 1.3.0'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
 group :development, :test do
   gem 'better_errors'

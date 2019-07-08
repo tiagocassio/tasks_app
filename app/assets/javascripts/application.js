@@ -3,6 +3,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery.sticky
+//= require popper
+//= require bootstrap
 
 function getStatus() {
     Rails.ajax({
